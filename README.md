@@ -1,4 +1,4 @@
-# Mandi Token — Procurement Slot Booking (Frontend)
+KisanSetu — Procurement Slot Booking (Frontend)
 
 Frontend built for SIH 2026 Problem Statement 26032 (Ministry of Consumer Affairs, Food & Public
 Distribution): farmer registration, slot booking, real-time queue status, and payment history.
