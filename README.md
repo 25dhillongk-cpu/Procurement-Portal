@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mandi Token — Procurement Slot Booking (Frontend)
 
-## Getting Started
+Frontend built for SIH 2026 Problem Statement 26032 (Ministry of Consumer Affairs, Food & Public
+Distribution): farmer registration, slot booking, real-time queue status, and payment history.
 
-First, run the development server:
+This is a **frontend-only** demo — all data lives in `lib/mock-data.ts`. Wire the functions in
+that file (and the `onClick`/`onSubmit` handlers in each page) to your real backend/API.
+
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/page.tsx` — overview / landing page
+- `app/book-slot/page.tsx` — farmer details → slot picker → confirmation (3-step flow)
+- `app/queue/page.tsx` — live token status, queue position, estimated wait, stage tracker
+- `app/payment-history/page.tsx` — procurement + payment ledger with status filters
+- `components/` — `Navbar`, `TokenTicket` (the token/ticket card), `StatusBadge`
+- `lib/types.ts` — shared TypeScript types for slots, bookings, payments
+- `lib/mock-data.ts` — sample centres, slots, bookings, and payment records
 
-## Learn More
+## Wiring to a real backend
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Replace `centres`/`slots` in `mock-data.ts` with a fetch to your centres/slots API.
+- In `book-slot/page.tsx`, `handleConfirmBooking` currently generates a token client-side —
+  replace it with a POST to your booking endpoint and use the token it returns.
+- In `queue/page.tsx`, the `setInterval` simulates a live feed — replace it with a WebSocket
+  subscription or a polling fetch to your queue-status endpoint.
+- SMS/app notifications: trigger these server-side when a booking is confirmed and when queue
+  position changes materially (e.g. every 5th place, or under 15 minutes' wait).
