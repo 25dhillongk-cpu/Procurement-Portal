@@ -1,248 +1,305 @@
 "use client";
 
 import Link from "next/link";
+import ThemeToggle from "../components/ThemeToggle";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f5f8f4]">
+    <main className="min-h-screen bg-[#f4f6f2] text-[#172019] transition-colors duration-300 dark:bg-[#0a100c] dark:text-[#edf3ee]">
 
-      {/* ================= NAVBAR ================= */}
+      {/* =====================================================
+          NAVBAR
+          ===================================================== */}
 
-      <nav className="sticky top-0 z-50 border-b border-green-100 bg-white/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+      <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6">
 
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-700 text-2xl shadow-lg shadow-green-700/20">
-              🌾
+        <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-lg shadow-black/5 backdrop-blur-xl dark:border-[#27342b] dark:bg-[#111a14]/90">
+
+          {/* BRAND */}
+
+          <Link
+            href="/"
+            className="flex items-center gap-3"
+          >
+
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#14532d] text-lg font-black text-white">
+              KS
             </div>
 
             <div>
-              <h1 className="text-lg font-extrabold tracking-tight text-green-800 sm:text-xl">
-                KisanSetu
-              </h1>
 
-              <p className="text-[10px] font-medium uppercase tracking-wider text-gray-500 sm:text-xs">
+              <div className="text-[17px] font-black tracking-tight text-[#14532d] dark:text-[#63c174]">
+                KisanSetu
+              </div>
+
+              <div className="text-[8px] font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 Smart Procurement
-              </p>
+              </div>
+
             </div>
+
           </Link>
 
-          <div className="hidden items-center gap-8 md:flex">
+
+          {/* NAVIGATION */}
+
+          <div className="hidden items-center gap-8 lg:flex">
+
             <a
-              href="#home"
-              className="text-sm font-semibold text-gray-600 transition hover:text-green-700"
+              href="#about"
+              className="text-sm font-semibold text-gray-600 transition hover:text-green-700 dark:text-gray-400 dark:hover:text-green-400"
             >
-              Home
+              About
             </a>
 
             <a
               href="#process"
-              className="text-sm font-semibold text-gray-600 transition hover:text-green-700"
+              className="text-sm font-semibold text-gray-600 transition hover:text-green-700 dark:text-gray-400 dark:hover:text-green-400"
             >
-              How It Works
+              Process
             </a>
 
             <a
               href="#features"
-              className="text-sm font-semibold text-gray-600 transition hover:text-green-700"
+              className="text-sm font-semibold text-gray-600 transition hover:text-green-700 dark:text-gray-400 dark:hover:text-green-400"
             >
               Features
             </a>
 
-            <a
-              href="#about"
-              className="text-sm font-semibold text-gray-600 transition hover:text-green-700"
-            >
-              About
-            </a>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+
+          {/* ACTIONS */}
+
+          <div className="flex items-center gap-2">
+
+            <ThemeToggle />
+
             <Link
               href="/login"
-              className="rounded-xl px-3 py-2 text-sm font-bold text-green-700 transition hover:bg-green-50 sm:px-5"
+              className="hidden rounded-xl px-4 py-2.5 text-sm font-bold text-gray-700 transition hover:bg-green-50 hover:text-green-800 dark:text-gray-300 dark:hover:bg-green-950/40 dark:hover:text-green-300 sm:block"
             >
               Login
             </Link>
 
             <Link
               href="/register"
-              className="rounded-xl bg-green-700 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-green-700/20 transition hover:-translate-y-0.5 hover:bg-green-800 sm:px-5"
+              className="rounded-xl bg-[#14532d] px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-[#0f4224]"
             >
               Register
             </Link>
+
           </div>
 
         </div>
+
       </nav>
 
 
-      {/* ================= HERO ================= */}
+      {/* =====================================================
+          HERO
+          ===================================================== */}
 
-      <section id="home" className="relative">
+      <section
+        id="about"
+        className="relative overflow-hidden px-5 pb-20 pt-36 sm:px-8 sm:pt-40"
+      >
 
-        {/* Decorative blobs */}
-        <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-green-200/40 blur-3xl" />
-        <div className="pointer-events-none absolute -right-40 top-20 h-96 w-96 rounded-full bg-lime-200/30 blur-3xl" />
+        {/* BACKGROUND */}
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 py-16 sm:px-8 md:grid-cols-2 md:py-24">
+        <div className="pointer-events-none absolute left-[-15rem] top-20 h-[35rem] w-[35rem] rounded-full bg-green-200/40 blur-3xl dark:bg-green-950/20" />
+
+        <div className="pointer-events-none absolute right-[-15rem] top-40 h-[35rem] w-[35rem] rounded-full bg-lime-200/30 blur-3xl dark:bg-lime-950/10" />
+
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
 
           {/* LEFT */}
 
-          <div>
+          <div className="animate-fade-up">
 
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-200 bg-white px-4 py-2 text-xs font-bold text-green-700 shadow-sm sm:text-sm">
-              <span className="h-2 w-2 rounded-full bg-green-500" />
-              Smart Agricultural Procurement
+            <div className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-white px-4 py-2 dark:border-green-900 dark:bg-green-950/30">
+
+              <span className="h-1.5 w-1.5 rounded-full bg-green-600" />
+
+              <span className="text-[9px] font-black uppercase tracking-[0.22em] text-green-800 dark:text-green-300">
+                Digital Procurement Platform
+              </span>
+
             </div>
 
-            <h1 className="text-4xl font-black leading-[1.08] tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
 
-              Less Waiting.
+            <h1 className="mt-7 max-w-3xl text-5xl font-black leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-[5.2rem]">
 
-              <span className="block text-green-700">
-                More Transparency.
+              A smarter way
+
+              <br />
+
+              <span className="text-green-700 dark:text-green-400">
+                to procure.
               </span>
 
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-8 text-gray-600 sm:text-lg">
-              KisanSetu simplifies the agricultural procurement journey
-              by bringing registration, slot booking, digital tokens,
-              queue tracking and procurement status into one platform.
+
+            <p className="mt-7 max-w-xl text-base leading-8 text-gray-600 dark:text-gray-400 sm:text-lg">
+              KisanSetu connects the farmer with the procurement
+              process through a single digital platform built for
+              clarity, transparency and efficiency.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
 
               <Link
                 href="/register"
-                className="rounded-2xl bg-green-700 px-7 py-4 text-center font-bold text-white shadow-xl shadow-green-700/20 transition hover:-translate-y-1 hover:bg-green-800"
+                className="group flex items-center justify-center gap-3 rounded-xl bg-[#14532d] px-7 py-4 text-sm font-black text-white shadow-xl shadow-green-900/15 transition duration-300 hover:-translate-y-1 hover:bg-[#0f4224]"
               >
-                Start as a Farmer →
+
+                Get Started
+
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+
               </Link>
 
-              <a
-                href="#process"
-                className="rounded-2xl border border-gray-200 bg-white px-7 py-4 text-center font-bold text-gray-700 shadow-sm transition hover:-translate-y-1 hover:border-green-300 hover:text-green-700"
+
+              <Link
+                href="/login"
+                className="flex items-center justify-center rounded-xl border border-gray-200 bg-white px-7 py-4 text-sm font-black text-gray-700 transition duration-300 hover:-translate-y-1 hover:border-green-200 hover:text-green-800 dark:border-[#2a372e] dark:bg-[#111a14] dark:text-gray-300 dark:hover:border-green-800 dark:hover:text-green-300"
               >
-                Explore Process
-              </a>
+                Farmer Login
+              </Link>
 
             </div>
 
-            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-500">
 
-              <span className="flex items-center gap-2">
-                <span className="font-bold text-green-600">✓</span>
-                Digital Booking
-              </span>
+            {/* TRUST STRIP */}
 
-              <span className="flex items-center gap-2">
-                <span className="font-bold text-green-600">✓</span>
-                Live Queue
-              </span>
+            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-gray-200 pt-6 dark:border-[#27342b]">
 
-              <span className="flex items-center gap-2">
-                <span className="font-bold text-green-600">✓</span>
-                Transparent Status
-              </span>
+              <TrustItem text="Digital-first" />
+
+              <TrustItem text="Transparent" />
+
+              <TrustItem text="Farmer-focused" />
 
             </div>
 
           </div>
 
 
-          {/* RIGHT - PRODUCT PREVIEW */}
+          {/* RIGHT VISUAL */}
 
           <div className="relative">
 
-            <div className="absolute -inset-5 rounded-[3rem] bg-gradient-to-br from-green-200/40 to-lime-100/20 blur-2xl" />
+            <div className="absolute -inset-8 rounded-[3rem] bg-green-200/30 blur-3xl dark:bg-green-950/20" />
 
-            <div className="relative rounded-[2rem] border border-white bg-white p-5 shadow-2xl shadow-green-900/10 sm:p-7">
 
-              {/* top bar */}
+            <div className="relative rounded-[2rem] border border-white bg-[#183b25] p-4 shadow-2xl shadow-green-950/20 dark:border-[#26382b] sm:p-5">
 
-              <div className="flex items-center justify-between">
+              {/* TOP BAR */}
+
+              <div className="flex items-center justify-between px-2 py-3">
 
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+
+                  <p className="text-[9px] font-black uppercase tracking-[0.25em] text-green-300">
+                    KisanSetu
+                  </p>
+
+                  <p className="mt-1 text-sm font-bold text-white">
                     Farmer Portal
                   </p>
 
-                  <h2 className="mt-1 text-xl font-extrabold text-gray-900">
-                    Your Procurement Journey
-                  </h2>
                 </div>
 
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-100 text-xl">
-                  🌱
+
+                <div className="flex gap-1.5">
+
+                  <span className="h-2 w-2 rounded-full bg-white/20" />
+
+                  <span className="h-2 w-2 rounded-full bg-white/20" />
+
+                  <span className="h-2 w-2 rounded-full bg-green-300" />
+
                 </div>
 
               </div>
 
 
-              {/* journey */}
+              {/* INNER PANEL */}
 
-              <div className="mt-7 space-y-3">
+              <div className="rounded-[1.5rem] bg-[#f6f8f4] p-6 dark:bg-[#151f18] sm:p-8">
 
-                <JourneyStep
-                  number="01"
-                  icon="👨‍🌾"
-                  title="Farmer Registration"
-                  text="Create your digital profile"
-                  active
-                />
-
-                <JourneyStep
-                  number="02"
-                  icon="🌾"
-                  title="Crop & Quantity"
-                  text="Enter your produce details"
-                />
-
-                <JourneyStep
-                  number="03"
-                  icon="📅"
-                  title="Centre & Slot"
-                  text="Choose a convenient slot"
-                />
-
-                <JourneyStep
-                  number="04"
-                  icon="🎫"
-                  title="Digital Token"
-                  text="Receive your queue token"
-                />
-
-                <JourneyStep
-                  number="05"
-                  icon="📊"
-                  title="Track Procurement"
-                  text="Follow every stage"
-                />
-
-              </div>
-
-
-              <div className="mt-6 rounded-2xl bg-green-50 p-4">
-
-                <div className="flex items-center gap-3">
-
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-600 text-white">
-                    ✓
-                  </div>
+                <div className="flex items-start justify-between">
 
                   <div>
-                    <p className="text-sm font-bold text-green-800">
-                      Everything in one place
+
+                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">
+                      Procurement journey
                     </p>
 
-                    <p className="text-xs text-green-700">
-                      Simple • Transparent • Efficient
-                    </p>
+                    <h2 className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
+                      Everything connected.
+                    </h2>
+
+                  </div>
+
+
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-300">
+                    ↗
                   </div>
 
                 </div>
+
+
+                {/* STEPS */}
+
+                <div className="mt-8 space-y-3">
+
+                  <VisualStep
+                    number="01"
+                    title="Registration"
+                    text="Create farmer profile"
+                    active
+                  />
+
+                  <VisualStep
+                    number="02"
+                    title="Scheduling"
+                    text="Manage procurement slots"
+                  />
+
+                  <VisualStep
+                    number="03"
+                    title="Token"
+                    text="Digital queue management"
+                  />
+
+                  <VisualStep
+                    number="04"
+                    title="Procurement"
+                    text="Complete the journey"
+                  />
+
+                </div>
+
+              </div>
+
+
+              {/* BOTTOM */}
+
+              <div className="flex items-center gap-3 px-2 py-4">
+
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-xs text-green-200">
+                  ✓
+                </div>
+
+                <p className="text-xs font-medium text-green-100">
+                  One platform. One connected journey.
+                </p>
 
               </div>
 
@@ -255,133 +312,68 @@ export default function Home() {
       </section>
 
 
-      {/* ================= PROCESS ================= */}
-
-      <section
-        id="process"
-        className="border-y border-green-100 bg-white py-20"
-      >
-
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-
-          <div className="mx-auto max-w-2xl text-center">
-
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-green-700">
-              Simple Process
-            </p>
-
-            <h2 className="mt-3 text-3xl font-black text-gray-900 sm:text-4xl">
-              Procurement, simplified.
-            </h2>
-
-            <p className="mt-4 leading-7 text-gray-500">
-              A clear digital journey from registration to successful
-              procurement.
-            </p>
-
-          </div>
-
-
-          <div className="mt-14 grid gap-5 md:grid-cols-4">
-
-            <ProcessCard
-              number="01"
-              icon="👨‍🌾"
-              title="Register"
-              description="Create your farmer profile with your basic details."
-            />
-
-            <ProcessCard
-              number="02"
-              icon="🌾"
-              title="Add Produce"
-              description="Enter your crop, quantity and procurement requirements."
-            />
-
-            <ProcessCard
-              number="03"
-              icon="📅"
-              title="Book Slot"
-              description="Select a procurement centre and available time slot."
-            />
-
-            <ProcessCard
-              number="04"
-              icon="🎫"
-              title="Get Token"
-              description="Receive your token and track the procurement journey."
-            />
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= FEATURES ================= */}
+      {/* =====================================================
+          FEATURES
+          ===================================================== */}
 
       <section
         id="features"
-        className="bg-[#12351d] py-20 text-white"
+        className="border-y border-gray-200 bg-white px-5 py-24 dark:border-[#27342b] dark:bg-[#0d140f] sm:px-8"
       >
 
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto max-w-7xl">
 
           <div className="max-w-2xl">
 
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-green-300">
-              Why KisanSetu
+            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-green-700 dark:text-green-400">
+              Platform
             </p>
 
-            <h2 className="mt-3 text-3xl font-black sm:text-4xl">
-              Built around the farmer.
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              Built around the
+              <br />
+              procurement journey.
             </h2>
-
-            <p className="mt-4 leading-7 text-green-100">
-              Technology should reduce complexity, not add to it.
-              KisanSetu keeps the farmer's journey simple and visible.
-            </p>
 
           </div>
 
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-gray-200 bg-gray-200 dark:border-[#27342b] dark:bg-[#27342b] md:grid-cols-2 lg:grid-cols-3">
 
-            <DarkFeature
-              icon="🎫"
+            <Feature
+              number="01"
+              title="Farmer Registration"
+              text="Create a digital farmer profile using the information provided by the farmer."
+            />
+
+            <Feature
+              number="02"
+              title="Slot Management"
+              text="Connect procurement scheduling with the farmer's digital journey."
+            />
+
+            <Feature
+              number="03"
               title="Digital Tokens"
-              text="Generate a unique token after booking your procurement slot."
+              text="Generate and display tokens based on the actual procurement process."
             />
 
-            <DarkFeature
-              icon="📍"
-              title="Live Queue"
-              text="Track your position in the queue instead of waiting without information."
-            />
-
-            <DarkFeature
-              icon="⏱️"
-              title="ETA"
-              text="Get an estimated waiting time based on the queue."
-            />
-
-            <DarkFeature
-              icon="🧪"
+            <Feature
+              number="04"
               title="Quality Testing"
-              text="Keep the testing and procurement decision transparent."
+              text="Keep quality assessment connected with procurement records."
             />
 
-            <DarkFeature
-              icon="💰"
-              title="Payment Tracking"
-              text="Track procurement payment status digitally."
+            <Feature
+              number="05"
+              title="Procurement Tracking"
+              text="Follow the progress of an actual procurement request."
             />
 
-            <DarkFeature
-              icon="🔔"
-              title="Notifications"
-              text="Stay informed about booking and procurement updates."
+            <Feature
+              number="06"
+              title="Digital Records"
+              text="Keep farmer and procurement information organised in one place."
             />
 
           </div>
@@ -391,73 +383,68 @@ export default function Home() {
       </section>
 
 
-      {/* ================= ABOUT ================= */}
+      {/* =====================================================
+          PROCESS
+          ===================================================== */}
 
-      <section id="about" className="py-20">
+      <section
+        id="process"
+        className="bg-[#f4f6f2] px-5 py-24 dark:bg-[#0a100c] sm:px-8"
+      >
 
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 md:grid-cols-2">
+        <div className="mx-auto max-w-7xl">
 
-          <div>
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
 
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-green-700">
-              Our Vision
-            </p>
+            <div>
 
-            <h2 className="mt-3 text-3xl font-black text-gray-900 sm:text-4xl">
-              A smarter bridge between farmers and procurement centres.
-            </h2>
+              <p className="text-[9px] font-black uppercase tracking-[0.25em] text-green-700 dark:text-green-400">
+                Process
+              </p>
 
-            <p className="mt-5 leading-8 text-gray-600">
-              KisanSetu is designed to digitize the procurement
-              experience while reducing unnecessary waiting and
-              improving visibility for both farmers and procurement
-              centre administrators.
-            </p>
-
-            <Link
-              href="/register"
-              className="mt-7 inline-flex rounded-xl bg-green-700 px-6 py-3.5 font-bold text-white shadow-lg shadow-green-700/20 transition hover:bg-green-800"
-            >
-              Create Your Account →
-            </Link>
-
-          </div>
-
-
-          <div className="rounded-[2rem] bg-gradient-to-br from-green-700 to-green-900 p-7 text-white shadow-xl sm:p-9">
-
-            <p className="text-sm font-bold text-green-200">
-              THE JOURNEY
-            </p>
-
-            <div className="mt-7 space-y-6">
-
-              <VisionRow
-                icon="📝"
-                title="Book"
-                text="Select your centre and slot."
-              />
-
-              <VisionRow
-                icon="🎫"
-                title="Track"
-                text="Receive and follow your token."
-              />
-
-              <VisionRow
-                icon="🧪"
-                title="Verify"
-                text="Quality testing at the centre."
-              />
-
-              <VisionRow
-                icon="✓"
-                title="Complete"
-                text="Procurement and payment tracking."
-              />
+              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+                From registration
+                <br />
+                to procurement.
+              </h2>
 
             </div>
 
+
+            <p className="max-w-md text-sm leading-7 text-gray-500 dark:text-gray-400">
+              The platform is designed to keep each stage connected,
+              so information doesn't get lost between steps.
+            </p>
+
+          </div>
+
+
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+
+            <Process
+              number="01"
+              title="Register"
+              text="Create your farmer profile."
+            />
+
+            <Process
+              number="02"
+              title="Schedule"
+              text="Select a procurement slot."
+            />
+
+            <Process
+              number="03"
+              title="Receive"
+              text="Get a digital token when generated."
+            />
+
+            <Process
+              number="04"
+              title="Procure"
+              text="Complete the procurement journey."
+            />
+
           </div>
 
         </div>
@@ -465,30 +452,30 @@ export default function Home() {
       </section>
 
 
-      {/* ================= CTA ================= */}
+      {/* =====================================================
+          CTA
+          ===================================================== */}
 
-      <section className="px-5 pb-20 sm:px-8">
+      <section className="px-5 py-20 dark:bg-[#0a100c] sm:px-8">
 
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-green-700 px-7 py-14 text-center text-white shadow-2xl shadow-green-900/20 sm:px-12">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-[#14532d] px-7 py-14 text-center shadow-2xl shadow-green-950/20 sm:px-12">
 
-          <p className="text-sm font-bold text-green-200">
-            START YOUR DIGITAL JOURNEY
+          <p className="text-[9px] font-black uppercase tracking-[0.25em] text-green-200">
+            KisanSetu
           </p>
 
-          <h2 className="mt-3 text-3xl font-black sm:text-4xl">
-            Ready to make procurement simpler?
+          <h2 className="mx-auto mt-4 max-w-2xl text-4xl font-black tracking-tight text-white sm:text-5xl">
+            Start your digital procurement journey.
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-green-100">
-            Create your farmer account and manage your procurement
-            journey from one simple platform.
-          </p>
+
+          {/* FIXED CTA BUTTON */}
 
           <Link
             href="/register"
-            className="mt-8 inline-flex rounded-xl bg-white px-7 py-3.5 font-bold text-green-800 transition hover:bg-green-50"
+            className="mt-8 inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 text-sm font-black text-[#14532d] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-gray-100 dark:bg-[#0f4224] dark:text-white dark:hover:bg-[#166534]"
           >
-            Register Now →
+            Register as Farmer →
           </Link>
 
         </div>
@@ -496,21 +483,29 @@ export default function Home() {
       </section>
 
 
-      {/* ================= FOOTER ================= */}
+      {/* =====================================================
+          FOOTER
+          ===================================================== */}
 
-      <footer className="border-t border-gray-200 bg-white">
+      <footer className="border-t border-gray-200 bg-white px-5 py-8 dark:border-[#27342b] dark:bg-[#0d140f] sm:px-8">
 
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 text-center sm:px-8 md:flex-row md:items-center md:justify-between md:text-left">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
 
-          <div className="flex items-center justify-center gap-2 md:justify-start">
-            <span className="text-xl">🌾</span>
-            <span className="font-extrabold text-green-800">
+          <div className="flex items-center gap-3">
+
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#14532d] text-[10px] font-black text-white">
+              KS
+            </div>
+
+            <span className="text-sm font-black">
               KisanSetu
             </span>
+
           </div>
 
-          <p className="text-xs text-gray-500">
-            Smart Agricultural Procurement Platform
+
+          <p className="text-xs text-gray-400">
+            Smart Procurement Platform
           </p>
 
         </div>
@@ -522,87 +517,96 @@ export default function Home() {
 }
 
 
-/* ================= COMPONENTS ================= */
+/* =========================================================
+   COMPONENTS
+========================================================= */
 
-function JourneyStep({ number, icon, title, text, active }) {
+function TrustItem({ text }) {
   return (
-    <div
-      className={`flex items-center gap-4 rounded-2xl border p-4 transition ${
-        active
-          ? "border-green-200 bg-green-50"
-          : "border-gray-100 bg-gray-50"
-      }`}
-    >
+    <div className="flex items-center gap-2">
 
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-lg shadow-sm">
-        {icon}
-      </div>
+      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-100 text-[10px] font-black text-green-700 dark:bg-green-950/50 dark:text-green-400">
+        ✓
+      </span>
 
-      <div className="flex-1">
-        <div className="flex items-center gap-2">
-          <span className="text-[10px] font-bold text-green-600">
-            {number}
-          </span>
-
-          <h3 className="text-sm font-bold text-gray-800">
-            {title}
-          </h3>
-        </div>
-
-        <p className="mt-0.5 text-xs text-gray-500">
-          {text}
-        </p>
-      </div>
-
-      <span className="text-gray-300">→</span>
+      <span className="text-xs font-bold text-gray-600 dark:text-gray-400">
+        {text}
+      </span>
 
     </div>
   );
 }
 
 
-function ProcessCard({ number, icon, title, description }) {
+function VisualStep({
+  number,
+  title,
+  text,
+  active = false,
+}) {
   return (
-    <div className="group rounded-3xl border border-gray-100 bg-[#f8faf8] p-6 transition duration-300 hover:-translate-y-2 hover:border-green-200 hover:bg-white hover:shadow-xl">
+    <div
+      className={`flex items-center gap-4 rounded-xl border p-3 ${
+        active
+          ? "border-green-200 bg-white dark:border-green-900 dark:bg-[#111a14]"
+          : "border-transparent"
+      }`}
+    >
+
+      <div
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[10px] font-black ${
+          active
+            ? "bg-green-700 text-white"
+            : "bg-gray-200 text-gray-500 dark:bg-[#263129] dark:text-gray-400"
+        }`}
+      >
+        {number}
+      </div>
+
+
+      <div className="min-w-0">
+
+        <p className="text-sm font-black text-gray-800 dark:text-gray-200">
+          {title}
+        </p>
+
+        <p className="mt-0.5 text-[10px] text-gray-400">
+          {text}
+        </p>
+
+      </div>
+
+    </div>
+  );
+}
+
+
+function Feature({
+  number,
+  title,
+  text,
+}) {
+  return (
+    <div className="group bg-white p-7 transition duration-300 hover:bg-[#f8faf7] dark:bg-[#111a14] dark:hover:bg-[#151f18]">
 
       <div className="flex items-center justify-between">
 
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-100 text-xl">
-          {icon}
-        </div>
-
-        <span className="text-xs font-black text-green-200">
+        <span className="text-[10px] font-black tracking-widest text-gray-300 dark:text-gray-600">
           {number}
+        </span>
+
+        <span className="text-lg text-green-700 transition-transform duration-300 group-hover:translate-x-1 dark:text-green-400">
+          ↗
         </span>
 
       </div>
 
-      <h3 className="mt-6 text-lg font-extrabold text-gray-900">
+
+      <h3 className="mt-10 text-lg font-black">
         {title}
       </h3>
 
-      <p className="mt-2 text-sm leading-6 text-gray-500">
-        {description}
-      </p>
-
-    </div>
-  );
-}
-
-
-function DarkFeature({ icon, title, text }) {
-  return (
-    <div className="rounded-3xl border border-green-800 bg-green-800/40 p-6 transition hover:-translate-y-1 hover:bg-green-800">
-
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-700 text-xl">
-        {icon}
-      </div>
-
-      <h3 className="mt-5 text-lg font-bold">
-        {title}
-      </h3>
-
-      <p className="mt-2 text-sm leading-6 text-green-100">
+      <p className="mt-3 text-sm leading-7 text-gray-500 dark:text-gray-400">
         {text}
       </p>
 
@@ -611,18 +615,25 @@ function DarkFeature({ icon, title, text }) {
 }
 
 
-function VisionRow({ icon, title, text }) {
+function Process({
+  number,
+  title,
+  text,
+}) {
   return (
-    <div className="flex items-center gap-4">
+    <div className="rounded-2xl border border-gray-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-950/5 dark:border-[#27342b] dark:bg-[#111a14]">
 
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10">
-        {icon}
-      </div>
+      <span className="text-xs font-black tracking-widest text-green-700 dark:text-green-400">
+        {number}
+      </span>
 
-      <div>
-        <h3 className="font-bold">{title}</h3>
-        <p className="mt-0.5 text-sm text-green-100">{text}</p>
-      </div>
+      <h3 className="mt-8 text-xl font-black">
+        {title}
+      </h3>
+
+      <p className="mt-3 text-sm leading-6 text-gray-500 dark:text-gray-400">
+        {text}
+      </p>
 
     </div>
   );
